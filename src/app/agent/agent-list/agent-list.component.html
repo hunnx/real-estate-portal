@@ -1,0 +1,20 @@
+<div *ngIf="loading">Loading agents...</div>
+<div *ngIf="error" class="error">{{ error }}</div>
+<table *ngIf="!loading && !error">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let agent of agents">
+      <td>{{ agent.id }}</td>
+      <td>{{ agent.name }}</td>
+      <td>{{ agent.email }}</td>
+      <td>{{ agent.phone }}</td>
+    </tr>
+  </tbody>
+</table>
