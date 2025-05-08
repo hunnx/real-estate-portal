@@ -14,7 +14,7 @@ export class RealEstateService {
   getAllAgents(): Observable<Agent[]> {
     return this.http.get<Agent[]>(`${this.baseUrl}GetAllAgents`);
   }
-
+                                             
   getAllCustomers(): Observable<Customer[]> {
     return this.http.get<Customer[]>(`${this.baseUrl}GetAllCustomers`);
   }
