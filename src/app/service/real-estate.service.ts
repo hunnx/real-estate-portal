@@ -3,6 +3,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Agent, Customer, Property, Enquiry, LoginRequest, LoginResponse } from '../models';
 
+// Define ApiResponse interface for better typing and understanding of the API response
+interface ApiResponse {
+  message: string;
+  result: boolean;
+  data: Agent[]; // `data` field should contain an array of Agent objects
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -11,8 +18,8 @@ export class RealEstateService {
 
   constructor(private http: HttpClient) {}
 
-  getAllAgents(): Observable<Agent[]> {
-    return this.http.get<Agent[]>(`${this.baseUrl}GetAllAgents`);
+  getAllAgents(): Observable<ApiResponse> {
+    return this.http.get<ApiResponse>('/api/RealEstate/GetAllAgents');
   }
                                              
   getAllCustomers(): Observable<Customer[]> {

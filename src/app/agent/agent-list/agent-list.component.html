@@ -1,20 +1,30 @@
 <div *ngIf="loading">Loading agents...</div>
 <div *ngIf="error" class="error">{{ error }}</div>
-<table *ngIf="!loading && !error">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Phone</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let agent of agents">
-      <td>{{ agent.id }}</td>
-      <td>{{ agent.name }}</td>
-      <td>{{ agent.email }}</td>
-      <td>{{ agent.phone }}</td>
-    </tr>
-  </tbody>
-</table>
+
+<div class="table-responsive mt-3" *ngIf="!loading && !error && agents.length > 0">
+  <table class="table table-striped table-hover table-bordered">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">User ID</th>
+        <th scope="col">Full Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Role</th>
+        <th scope="col">Project</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let agent of agents">
+        <td>{{ agent.userId }}</td>
+        <td>{{ agent.fullName }}</td>
+        <td>{{ agent.emailId }}</td>
+        <td>{{ agent.role }}</td>
+        <td>{{ agent.projectName }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<div *ngIf="!loading && !error && agents.length === 0">
+  No agents found.
+</div>

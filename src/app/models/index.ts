@@ -1,10 +1,15 @@
 export interface Agent {
-  id: string;
-  name: string;
-  email: string;
-  phone: string;
+    userId: number;
+    userName: string;
+    emailId: string;
+    fullName: string;
+    role: string;
+    createdDate: string; // or Date, depending on how you're handling dates
+    password: string;
+    projectName: string;
+    refreshToken: string | null;
+    refreshTokenExpiryTime: string | null; // or Date | null, if using Date objects
 }
-
 export interface Customer {
   id: string;
   name: string;
